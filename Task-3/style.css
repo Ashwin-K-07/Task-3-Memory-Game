@@ -1,0 +1,120 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: rebeccapurple;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  header {
+    margin: 15px 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: sandybrown;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: greenyellow;
+    color: red;
+    font-weight: bold;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .card {
+    width: 100%;
+    padding-top: 100%; /* Square cards */
+    position: relative;
+    cursor: pointer;
+    transform: perspective(600px);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  
+  .card.flip {
+    transform: rotateY(180deg);
+  }
+
+  .card .back,
+  .card .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+    border: 2px solid #333;
+    border-radius: 8px;
+  }
+
+  .card .front {
+    background-color: #007BFF;
+  
+  }
+
+  .card .back {
+    background-color: rosybrown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transform: rotateY(180deg);
+  }    
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .game-board {
+      grid-template-columns: repeat(4, 1fr); /* Still 4 columns for tablets */
+      max-width: 500px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .game-board {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller tablets */
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .game-board {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile phones */
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .game-board {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for very small devices */
+      gap: 5px; /* Reduce gap for small screens */
+    }
+  
+    button {
+      font-size: 0.9rem; /* Smaller button text */
+      padding: 8px 16px;
+    }
+  
+    h1 {
+      font-size: 1.5rem; /* Adjust title size */
+    }
+  }
+  
+  
